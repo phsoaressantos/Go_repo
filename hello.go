@@ -1,5 +1,7 @@
 package main
 
+// começando testes em go
+
 import "fmt"
 
 func main() {
@@ -16,4 +18,5 @@ func main() {
 	fmt.Scan(&comando)
 	fmt.Println("O endereço da minha variavel comando é", &comando)
 	fmt.Println("O comando escolhido foi", comando)
+
 }
