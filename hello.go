@@ -1,5 +1,7 @@
 package main
 
+// começando testes em go
+
 import "fmt"
 
 func main() {
@@ -17,6 +19,7 @@ func main() {
 	fmt.Println("O endereço da minha variavel comando é", &comando)
 	fmt.Println("O comando escolhido foi", comando)
 
+<<<<<<< HEAD
 	// if comando == 1 {
 	// 	fmt.Println("Monitorando...")
 	// } else if comando == 2 {
@@ -38,4 +41,6 @@ func main() {
 	default:
 		fmt.Println("Não conheço este comando")
 	}
+=======
+>>>>>>> 55ba25867fe19dbae8b10f5b7d9fa429e6088391
 }
