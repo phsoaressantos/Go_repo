@@ -7,11 +7,13 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+	"reflect"
 )
 
 func main() {
 
 	exibeIntroducao()
+	exibeNomes()
 	// nao existe while true em go. for se condicao é equivalente
 
 	for {
@@ -71,6 +73,14 @@ func leComando() int {
 
 func iniciarMonitoramento() {
 	fmt.Println("Monitorando...")
+	// array tem tamanho fixo, nao é dinamico. trabalhamos com slice
+	var sites [4]string
+	sites[0] = "https://www.alura.com.br"
+	sites[1] = "https://random-status-code.herokuapp.com/"
+	sites[2] = "https://globo.com"
+
+	fmt.Println(sites)
+
 	site := "https://www.alura.com.br"
 	// _ serve para ignorar a variavel q nao quer neste caso o err
 	resp, _ := http.Get(site)
@@ -83,4 +93,13 @@ func iniciarMonitoramento() {
 	}
 	// da p trazer conteudo?
 	// https://higordiego.com.br/posts/golang-jira/
+}
+
+func exibeNomes() {
+	nomes := []string{"Douglas", "Daniel", "Julio"}
+	fmt.Println(nomes)
+	fmt.Println(reflect.TypeOf(nomes))
+	fmt.Println("O meu slice tem a capacidade para", cap(nomes), "itens. Além disso tem", len(nomes))
+
+	nomes = append()
 }
