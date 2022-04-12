@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+	"time"
 )
 
 func main() {
@@ -72,17 +73,23 @@ func leComando() int {
 func iniciarMonitoramento() {
 	fmt.Println("Monitorando...")
 	// array tem tamanho fixo, nao é dinamico. trabalhamos com slice
-	var sites [4]string
-	sites[0] = "https://www.alura.com.br"
-	sites[1] = "https://random-status-code.herokuapp.com/"
-	sites[2] = "https://globo.com"
+	sites := []string{"https://www.alura.com.br", "https://random-status-code.herokuapp.com/", "https://gruponuttrir.com.br"}
 
-	fmt.Println(sites)
+	for i := 0; i < 5; i++ {
+		for i, site := range sites {
+			fmt.Println("Testando site", i, ":", site)
+			testaSite(site)
+		}
+		time.Sleep(5 * time.Second)
+	}
 
-	site := "https://www.alura.com.br"
+	fmt.Println("")
+}
+
+func testaSite(site string) {
 	// _ serve para ignorar a variavel q nao quer neste caso o err
 	resp, _ := http.Get(site)
-	fmt.Println(resp)
+	//fmt.Println(resp)
 
 	if resp.StatusCode == 200 {
 		fmt.Println("O Site:", site, "foi carregado corretamente")
@@ -91,6 +98,7 @@ func iniciarMonitoramento() {
 	}
 	// da p trazer conteudo?
 	// https://higordiego.com.br/posts/golang-jira/
+
 }
 
 // funcao para entendermos as diferenças entre slice e array
