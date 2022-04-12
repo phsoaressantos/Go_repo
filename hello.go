@@ -7,15 +7,13 @@ import (
 	"fmt"
 	"net/http"
 	"os"
-	"reflect"
 )
 
 func main() {
 
 	exibeIntroducao()
-	exibeNomes()
-	// nao existe while true em go. for se condicao é equivalente
 
+	// nao existe while true em go. for se condicao é equivalente
 	for {
 		exibeMenu()
 		comando := leComando()
@@ -95,11 +93,17 @@ func iniciarMonitoramento() {
 	// https://higordiego.com.br/posts/golang-jira/
 }
 
-func exibeNomes() {
-	nomes := []string{"Douglas", "Daniel", "Julio"}
-	fmt.Println(nomes)
-	fmt.Println(reflect.TypeOf(nomes))
-	fmt.Println("O meu slice tem a capacidade para", cap(nomes), "itens. Além disso tem", len(nomes))
+// funcao para entendermos as diferenças entre slice e array
+//func exibeNomes() {
+//	nomes := []string{"Douglas", "Daniel", "Julio"}
+//	fmt.Println(nomes)
+//	fmt.Println(reflect.TypeOf(nomes))
+//	fmt.Println("O meu slice tem a capacidade para", cap(nomes), "itens. Além disso tem", len(nomes))
 
-	nomes = append()
-}
+//	nomes = append(nomes, "Pedro")
+
+//	fmt.Println(nomes)
+//	fmt.Println(reflect.TypeOf(nomes))
+// quando vai estourar ele dobra o slice
+//	fmt.Println("O meu slice tem a capacidade para", cap(nomes), "itens. Além disso tem", len(nomes))
+//}
